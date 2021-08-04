@@ -8,6 +8,7 @@ main {
   margin-top: 3em;
   display: flex;
 }
+
 .board {
   margin: auto;
   height: 30em;
@@ -32,6 +33,14 @@ main {
   border-color: #0C7B93;
   border-width: 0.5em;
   width: 100%;
+}
+
+.blue-box {
+  background-color: #009DFF;
+}
+
+.yellow-box {
+  background-color: #FCD12A;
 }
 
 .box:hover {
