@@ -1,10 +1,34 @@
 body {
   background-color: #142850;
-  margin: auto;
   text-align: center;
   color: #0C7B93;
 }
 
 main {
-  width: 85%;
+  margin-top: 1em;
+  display: flex;
+}
+.board {
+  margin: auto;
+  height: 100%;
+  background-color: #0C7B93;
+  display: flex;
+  flex-direction: column;
+}
+
+.overlay {
+  position: absolute;
+  display: inline-block;
+}
+
+.row {
+  height: 10em;
+  width: 30em;
+  display: flex;
+  flex-direction: row;
+}
+
+.box {
+  height: 10em;
+  width: 10em;
 }
