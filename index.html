@@ -10,24 +10,24 @@
 <body>
   <h1> Tic-tac-toe for cool people</h1>
   <main>
-    <header>
-
-    </header>
-    <article>
+    <article class="board">
+      <article class="overlay" onclick="startGame()">
+        Click on the box to play!
+      </article>
       <div class="row">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
+        <div class="box" id="box-1" onclick="boxClick(0,0)"></div>
+        <div class="box" id="box-2" onclick="boxClick(0,1)"></div>
+        <div class="box" id="box-3" onclick="boxClick(0,2)"></div>
       </div>
       <div class="row">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
+        <div class="box" id="box-4" onclick="boxClick(1,0)"></div>
+        <div class="box" id="box-5" onclick="boxClick(1,1)"></div>
+        <div class="box" id="box-6" onclick="boxClick(1,2)"></div>
       </div>
       <div class="row">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
+        <div class="box" id="box-7" onclick="boxClick(2,0)"></div>
+        <div class="box" id="box-8" onclick="boxClick(2,1)"></div>
+        <div class="box" id="box-9" onclick="boxClick(2,2)"></div>
       </div>
     </article>
   </main>
