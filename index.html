@@ -6,29 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Awesome Tic-Tac-Toe</title>
   <link rel="stylesheet" href="index.css">
-  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="main.js" defer></script>
 </head>
 <body>
   <h1> Tic-tac-toe for cool people</h1>
+  <header id="game-text">
+    <h4>Click any space to play! Blue's turn.</h4>
+  </header>
   <main>
     <article class="board">
-      <article class="overlay" onclick="startGame()">
-        Click on the box to play!
-      </article>
       <div class="row top-row">
-        <div class="box" id="box-1" onclick="boxClick(0,0)"></div>
-        <div class="box" id="box-2" onclick="boxClick(0,1)"></div>
-        <div class="box" id="box-3" onclick="boxClick(0,2)"></div>
+        <div class="box" id="box-1" onclick="boxClick(0)"></div>
+        <div class="box" id="box-2" onclick="boxClick(1)"></div>
+        <div class="box" id="box-3" onclick="boxClick(2)"></div>
       </div>
       <div class="row">
-        <div class="box" id="box-4" onclick="boxClick(1,0)"></div>
-        <div class="box" id="box-5" onclick="boxClick(1,1)"></div>
-        <div class="box" id="box-6" onclick="boxClick(1,2)"></div>
+        <div class="box" id="box-4" onclick="boxClick(3)"></div>
+        <div class="box" id="box-5" onclick="boxClick(4)"></div>
+        <div class="box" id="box-6" onclick="boxClick(5)"></div>
       </div>
       <div class="row bottom-row">
-        <div class="box" id="box-7" onclick="boxClick(2,0)"></div>
-        <div class="box" id="box-8" onclick="boxClick(2,1)"></div>
-        <div class="box" id="box-9" onclick="boxClick(2,2)"></div>
+        <div class="box" id="box-7" onclick="boxClick(6)"></div>
+        <div class="box" id="box-8" onclick="boxClick(7)"></div>
+        <div class="box" id="box-9" onclick="boxClick(8)"></div>
       </div>
     </article>
   </main>
