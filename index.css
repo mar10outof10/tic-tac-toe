@@ -5,20 +5,19 @@ body {
 }
 
 main {
-  margin-top: 1em;
+  margin-top: 3em;
   display: flex;
 }
 .board {
   margin: auto;
-  height: 100%;
-  background-color: #0C7B93;
+  height: 30em;
   display: flex;
   flex-direction: column;
 }
 
 .overlay {
   position: absolute;
-  display: inline-block;
+  display: none;
 }
 
 .row {
@@ -29,6 +28,28 @@ main {
 }
 
 .box {
-  height: 10em;
-  width: 10em;
+  border-style: solid;
+  border-color: #0C7B93;
+  border-width: 0.5em;
+  width: 100%;
+}
+
+.box:hover {
+  background-color: #00A8CC;
+}
+
+.top-row>.box {
+  border-top: none;
+}
+
+.bottom-row>.box {
+  border-bottom: none;
+}
+
+.box:nth-child(1) {
+  border-left: none;
+}
+
+.box:nth-child(3) {
+  border-right: none;
 }
