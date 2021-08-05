@@ -43,8 +43,12 @@ main {
   background-color: #FCD12A;
 }
 
-.box:hover {
+.blue .box:hover {
   background-color: #00A8CC;
+}
+
+.yellow .box:hover {
+  background-color: #FEE227;
 }
 
 .top-row>.box {
