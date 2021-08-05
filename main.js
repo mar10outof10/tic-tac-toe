@@ -1,4 +1,5 @@
 const gameText = document.getElementById('game-text');
+const board = document.getElementsByClassName('board')[0];
 const boxes = document.getElementsByClassName('box');
 
 const gridMap = ["top-left", "top", "top-right", "left", "middle", "right", "bottom-left", "bottom", "bottom-right"];
@@ -17,7 +18,10 @@ const boxClick = (index) => {
   if (box.classList.length > 1) {
     return gameText.innerHTML = "Hey! That spot is already taken!";
   }
+
   c++;
+  board.classList.remove(turn);
+
   if (turn === "blue") {
     box.classList.add("blue-box");
     turn = "yellow";
@@ -27,6 +31,9 @@ const boxClick = (index) => {
     turn = "blue";
     gameText.innerHTML = `Yellow piece played in ${gridMap[index]} spot! Blue's turn!`;
   }
+
+  board.classList.add(turn);
+
   if (c >= 5) { // minimum 5 pieces before victory possible
     winner = victoryCheck(index);
   }
@@ -59,4 +66,4 @@ const victoryCheck = (index) => { // receives index, checks game grid. Returns a
       return [boxes[4].classList[1].split('-')[0], 2, 4, 6]
     }
   }
-}
+};
