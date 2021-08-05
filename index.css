@@ -1,7 +1,7 @@
 body {
   background-color: #142850;
   text-align: center;
-  color: #0C7B93;
+  color: #FF781F;
 }
 
 main {
@@ -36,15 +36,15 @@ main {
 }
 
 .blue .box:hover {
-  background-color: #00A8CC;
+  background-color: #1261A0;
 }
 
 .yellow .box:hover {
-  background-color: #FEE227;
+  background-color: #CCA42B;
 }
 
 .blue-box {
-  background-color: #009DFF;
+  background-color: #58CCED;
 }
 
 .board .blue-box:hover {
@@ -52,7 +52,7 @@ main {
 }
 
 .yellow-box {
-  background-color: #FCD12A;
+  background-color: #F3E260;
 }
 
 .board .yellow-box:hover {
