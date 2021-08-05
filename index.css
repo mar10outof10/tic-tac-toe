@@ -35,20 +35,28 @@ main {
   width: 100%;
 }
 
-.blue-box {
-  background-color: #009DFF;
-}
-
-.yellow-box {
-  background-color: #FCD12A;
-}
-
 .blue .box:hover {
   background-color: #00A8CC;
 }
 
 .yellow .box:hover {
   background-color: #FEE227;
+}
+
+.blue-box {
+  background-color: #009DFF;
+}
+
+.board .blue-box:hover {
+  background-color: #CE2029;
+}
+
+.yellow-box {
+  background-color: #FCD12A;
+}
+
+.board .yellow-box:hover {
+  background-color: #CE2029;
 }
 
 .top-row>.box {
