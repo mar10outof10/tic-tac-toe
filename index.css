@@ -83,14 +83,6 @@ img {
   background-color: #F3E260;
 }
 
-.board .win-box {
-  background-color: #8CFF19;
-}
-
-.game-over .win-box:hover {
-  background-color: #8CFF19;
-}
-
 .top-row>.box {
   border-top: none;
 }
