@@ -9,6 +9,14 @@ main {
   display: flex;
 }
 
+h3 {
+  height: 2em;
+}
+
+h2 {
+  color: #FF0000;
+}
+
 .board {
   margin: auto;
   height: 30em;
@@ -51,6 +59,10 @@ main {
   background-color: #CE2029;
 }
 
+.game-over .blue-box:hover {
+  background-color: #58CCED;
+}
+
 .yellow-box {
   background-color: #F3E260;
 }
@@ -58,6 +70,19 @@ main {
 .board .yellow-box:hover {
   background-color: #CE2029;
 }
+
+.game-over .yellow-box:hover {
+  background-color: #F3E260;
+}
+
+.board .win-box {
+  background-color: #8CFF19;
+}
+
+.game-over .win-box:hover {
+  background-color: #8CFF19;
+}
+
 
 .top-row>.box {
   border-top: none;
