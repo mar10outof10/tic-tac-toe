@@ -17,6 +17,11 @@ h2 {
   color: #FF0000;
 }
 
+img {
+  height: 80%;
+  width: 80%;
+}
+
 .board {
   margin: auto;
   height: 30em;
@@ -37,6 +42,9 @@ h2 {
 }
 
 .box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-style: solid;
   border-color: #0C7B93;
   border-width: 0.5em;
