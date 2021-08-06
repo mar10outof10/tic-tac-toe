@@ -46,8 +46,7 @@ const boxClick = (index) => {
     game = false;
     for (let i = 2; i <= 4; i++) {
       boxes[winner[i]].classList.add('win-box');
-      boxes[winner[i]].innerHTML=`<img src="assets/${winner[0] === "blue" ? "o" : "x"}_green.png">
-                                  <img class="winner" src="assets/${winner[1]}.png">`;
+      boxes[winner[i]].innerHTML+=`<img class="winner" src="assets/${winner[1]}.png">`;
     }
     board.classList.remove(winner[0]);
     board.classList.add("game-over"); // disables hover effects
