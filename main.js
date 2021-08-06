@@ -28,15 +28,16 @@ const boxClick = (index) => {
 
   if (turn === "blue") {
     box.classList.add("blue-box");
+    box.innerHTML="<img src=\"assets/o_transparent.png\">"
     turn = "yellow";
     gameText.innerHTML = `Blue played in the ${gridMap[index]} spot! Yellow's turn!`;
   } else {
     box.classList.add("yellow-box");
+    box.innerHTML="<img src=\"assets/x_transparent.png\">"
     turn = "blue";
     gameText.innerHTML = `Yellow played in the ${gridMap[index]} spot! Blue's turn!`;
   }
 
-  
   if (counter >= 5) { // minimum 5 pieces before victory possible
     winner = victoryCheck(index);
   }
@@ -94,6 +95,7 @@ const newGame = () => {
     box.classList.remove("blue-box");
     box.classList.remove("yellow-box");
     box.classList.remove("win-box");
+    box.innerHTML = "";
   }
 
   gameText.innerHTML = "Game on! Blue's turn"
