@@ -1,13 +1,17 @@
 const gameText = document.getElementById('game-text');
 const board = document.getElementsByClassName('board')[0];
 const boxes = document.getElementsByClassName('box');
-
 const gridMap = ["top-left", "top", "top-right", "left", "middle", "right", "bottom-left", "bottom", "bottom-right"];
 
-let c = 0;
+console.log('asdf', gameText); 
 
-let turn = "blue";
-let winner = false;
+let counter;
+let turn;
+let winner;
+
+let blueMoves;
+let yellowMoves;
+
 let game = true;
 
 const boxClick = (index) => {
@@ -19,29 +23,29 @@ const boxClick = (index) => {
     return gameText.innerHTML = "Hey! That spot is already taken!";
   }
 
-  c++;
+  counter++;
   board.classList.remove(turn);
 
   if (turn === "blue") {
     box.classList.add("blue-box");
     turn = "yellow";
-    gameText.innerHTML = `Blue piece played in ${gridMap[index]} spot! Yellow's turn!`;
+    gameText.innerHTML = `Blue played in the ${gridMap[index]} spot! Yellow's turn!`;
   } else {
     box.classList.add("yellow-box");
     turn = "blue";
-    gameText.innerHTML = `Yellow piece played in ${gridMap[index]} spot! Blue's turn!`;
+    gameText.innerHTML = `Yellow played in the ${gridMap[index]} spot! Blue's turn!`;
   }
 
   board.classList.add(turn);
 
-  if (c >= 5) { // minimum 5 pieces before victory possible
+  if (counter >= 5) { // minimum 5 pieces before victory possible
     winner = victoryCheck(index);
   }
   if (winner) {
     game = false;
     return gameText.innerHTML = `${winner[0]} you're a winner!`;
   }
-  if (c >= 9) {
+  if (counter >= 9) {
     gameText.innerHTML = "Nobody wins! Darn";
   }
 };
@@ -67,3 +71,19 @@ const victoryCheck = (index) => { // receives index, checks game grid. Returns a
     }
   }
 };
+
+const newGame = () => {
+  game = true;
+  counter = 0;
+  let turn = "blue";
+  winner = false;
+  yellowMoves = new Set();
+  blueMoves = new Set();
+
+  for (const box of boxes) {
+    box.classList.remove('blue-box');
+    box.classList.remove('yellow-box');
+  }
+
+  gameText.innerHTML = "Game on! Blue's turn"
+}
