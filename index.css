@@ -22,6 +22,12 @@ img {
   width: 60%;
 }
 
+.winner {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
 .board {
   margin: auto;
   height: 30em;
@@ -42,6 +48,7 @@ img {
 }
 
 .box {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
