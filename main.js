@@ -46,6 +46,7 @@ const boxClick = (index) => {
     game = false;
     for (let i = 1; i <= 3; i++) {
       boxes[winner[i]].classList.add('win-box');
+      boxes[winner[i]].innerHTML=`<img src=\"assets/${winner[0] === "blue" ? "o" : "x"}_green.png\">`
     }
     board.classList.remove(winner[0]);
     board.classList.add("game-over"); // disables hover effects
@@ -87,6 +88,8 @@ const newGame = () => {
   game = true;
   counter = 0;
   turn = "blue";
+  board.classList.remove("yellow");
+  board.classList.add("blue");
   winner = false;
   yellowMoves = new Set();
   blueMoves = new Set();
