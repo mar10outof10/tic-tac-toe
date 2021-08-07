@@ -50,7 +50,7 @@ const boxClick = (index) => {
     }
     board.classList.remove(winner[0]);
     board.classList.add("game-over"); // disables hover effects
-    return gameText.innerHTML = `${winner[0]} you're a winner!`;
+    return gameText.innerHTML = `${winner[0]} you're the winner!`;
   }
 
   if (counter >= 9) {
@@ -88,6 +88,7 @@ const newGame = () => {
   game = true;
   counter = 0;
   turn = "blue";
+  board.classList.remove("game-over")
   board.classList.remove("yellow");
   board.classList.add("blue");
   winner = false;
