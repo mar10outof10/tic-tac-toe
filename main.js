@@ -2,26 +2,32 @@ const gameText = document.getElementById("game-text");
 const header = document.getElementById("header-container");
 const board = document.getElementsByClassName("board")[0];
 const boxes = document.getElementsByClassName("box");
+
 const gridMap = ["top-left", "top", "top-right", "left", "middle", "right", "bottom-left", "bottom", "bottom-right"];
+const winMap = {
+  "horizontal": "horiz_line",
+  "vertical": "vert_line",
+  "left-diagonal": "diag_left",
+  "right-diagonal": "diag_right"
+};
 
 let counter;
 let turn;
 let winData;
 
-let blueMoves;
-let yellowMoves;
-
 let game;
 
 const boxClick = (index) => {
   if (!game) {
-    return gameText.innerHTML = "Click the button for a new game!";
+    gameText.innerHTML = "Click the button for a new game!";
+    return;
   }
 
   const box = boxes[index];
 
   if (box.classList.length > 1) {
-    return gameText.innerHTML = "<h2>Hey! That spot is already taken!</h2>";
+    gameText.innerHTML = "<h2>Hey! That spot is already taken!</h2>";
+    return;
   }
 
   counter++;
@@ -48,10 +54,14 @@ const boxClick = (index) => {
     game = false;
     for (let i = 1; i <= 3; i++) {
       boxes[winData[i]].classList.add('win-box');
-      boxes[winData[i]].innerHTML+=`<img class="winner" src="assets/${winData[0]}.png">`;
+      boxes[winData[i]].innerHTML+=`<img class="winner" src="assets/${winMap[winData[0]]}.png">`;
+    }
+    for (const widget of document.getElementsByTagName("iframe")) {
+      widget.style.setProperty("visibility", "visible", "important");
     }
     board.classList.add("game-over"); // disables hover effects
-    return gameText.innerHTML = `${winner} you're the winner!`;
+    gameText.innerHTML = `${winner} is the winner with a ${winData[0]} victory!`;
+    return;
   }
   
   if (counter >= 9) {
@@ -62,26 +72,26 @@ const boxClick = (index) => {
   board.classList.add(turn);
 };
 
-const victoryCheck = (index) => { // receives index, checks game grid. Returns array in format ["winner", #, #, #] where each # is a coordinate of the winning piece
-  const row = Math.floor(index / 3) * 3; // gives first index of row 
+const victoryCheck = (index) => { // receives index, checks game grid. Returns array in format ["win-type", #, #, #] where each # is the index of a winning box
+  const row = Math.floor(index / 3) * 3; // gives first index of row (0, 3 or 6)
   if (boxes[row].classList.length > 1 && boxes[row].classList[1] === boxes[row + 1].classList[1] && boxes[row + 1].classList[1] === boxes[row + 2].classList[1]) {
-    return ["horiz_line", row, row + 1, row + 2]
+    return ["horizontal", row, row + 1, row + 2]
   }
 
-  const col = index % 3;
+  const col = index % 3; // gives column (0, 1, or 2)
   if (boxes[col].classList.length > 1 && boxes[col].classList[1] === boxes[col + 3].classList[1] && boxes[col + 3].classList[1] === boxes[col + 6].classList[1]) {
-    return ["vert_line", col, col + 3, col + 6]
+    return ["vertical", col, col + 3, col + 6]
   }
 
   if (index === 0 || index === 4 || index === 8) { // diagonal check #1
     if (boxes[0].classList.length > 1 && boxes[0].classList[1] === boxes[4].classList[1] && boxes[4].classList[1] === boxes[8].classList[1]) {
-      return ["diag_right", 0, 4, 8]
+      return ["left-diagonal", 0, 4, 8]
     }
   }
 
   if (index === 2 || index === 4 || index === 6) { // diagonal check #2
     if (boxes[2].classList.length > 1 && boxes[2].classList[1] === boxes[4].classList[1] && boxes[4].classList[1] === boxes[6].classList[1]) {
-      return ["diag_left", 2, 4, 6]
+      return ["right-diagonal", 2, 4, 6]
     }
   }
 };
@@ -96,6 +106,10 @@ const newGame = () => {
   board.classList.add("blue");
   yellowMoves = new Set();
   blueMoves = new Set();
+
+  for (const widget of document.getElementsByTagName("iframe")) {
+    widget.style.setProperty("visibility", "hidden", "important");
+  }
 
   for (const box of boxes) {
     box.classList.remove("blue-box");
