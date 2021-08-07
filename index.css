@@ -1,7 +1,8 @@
 body {
   background-color: #142850;
   text-align: center;
-  color: #FF781F;
+  color: #99CC99;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 main {
@@ -13,7 +14,7 @@ main {
 #header-container {
   display: flex;
   height: 3em;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
   align-items: center;
   justify-content: center;
 }
@@ -24,6 +25,14 @@ h3 {
 
 h2 {
   color: #FF0000;
+}
+
+.blue-win {
+  color: #2A9DF4;
+}
+
+.yellow-win {
+  color: #D9B51C;
 }
 
 iframe {
@@ -126,5 +135,11 @@ img {
 
   .row {
     width: 20em;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  h3 {
+    width: 30%;
   }
 }

@@ -61,6 +61,7 @@ const boxClick = (index) => {
     }
     board.classList.add("game-over"); // disables hover effects
     gameText.innerHTML = `${winner} is the winner with a ${winData[0]} victory!`;
+    gameText.className = winner === "Blue" ? "blue-win" : "yellow-win";
     return;
   }
   
@@ -104,6 +105,7 @@ const newGame = () => {
   board.classList.remove("game-over")
   board.classList.remove("yellow");
   board.classList.add("blue");
+  gameText.className = "";
   yellowMoves = new Set();
   blueMoves = new Set();
 
