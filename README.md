@@ -2,6 +2,9 @@
 
 ## Stack: JS/CSS/HTML
 
+### Hosted at [https://mar10outof10.github.io/tic-tac-toe/](https://mar10outof10.github.io/tic-tac-toe/)
+
+
 Blue goes first.
 
 Click the board on an empty space to play that space.
