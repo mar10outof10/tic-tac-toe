@@ -11,11 +11,7 @@
   <meta property="og:title"              content="Awesome Tic-Tac-Toe" />
   <meta property="og:description"        content="I just won a game of Awesome Tic-Tac-Toe! Care to challenge me?" />
   <meta property="og:image"              content="assets/fb_thumb.png" />
-  <script async defer type="text/javascript" src="main.js"></script>
-</head>
-<body>
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
+  <script async>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
@@ -23,11 +19,15 @@
   fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script async type="text/javascript" src="main.js"></script>
+</head>
+<body>
+  <div id="fb-root"></div>
   <h1>Tic-Tac-Toe</h1>
   <header id="header-container">
     <div class="fb-share-button" data-href="https://mar10outof10.github.io/tic-tac-toe" data-layout="button"></div>
     <h3 id="game-text">Click the button to start the game!</h3>
-    <div class="hidden"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button hidden" data-text="I just won a game of Awesome Tic-Tac-Toe! Care to challenge me?" data-url="https://mar10outof10.github.io/tic-tac-toe/" data-hashtags="tictactoe" data-show-count="false">Tweet</a></div>
+    <div class="hidden"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button hidden" data-text="I just won a game of Awesome Tic-Tac-Toe! Care to challenge me?" data-url="https://mar10outof10.github.io/tic-tac-toe/" data-hashtags="tictactoe" data-show-count="false"></a></div>
   </header>
   <button onclick="newGame()">
     New Game!
