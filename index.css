@@ -26,8 +26,8 @@ h2 {
   color: #FF0000;
 }
 
-.hidden {
-  transform: scale(0);
+iframe {
+  visibility: hidden !important;
 }
 
 img {
