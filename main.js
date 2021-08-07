@@ -14,6 +14,7 @@ const winMap = {
 let counter;
 let turn;
 let winData;
+let errorIndex;
 
 let game;
 
@@ -23,9 +24,16 @@ const boxClick = (index) => {
     return;
   }
 
+  if (errorIndex) {
+    boxes[errorIndex].id="";
+    errorIndex = undefined;
+  }
+  
   const box = boxes[index];
-
+  
   if (box.classList.length > 1) {
+    errorIndex = index;
+    boxes[errorIndex].id="error-box";
     gameText.innerHTML = "<h2>Hey! That spot is already taken!</h2>";
     return;
   }
@@ -108,6 +116,11 @@ const newGame = () => {
   gameText.className = "";
   yellowMoves = new Set();
   blueMoves = new Set();
+
+  if (errorIndex) {
+    boxes[errorIndex].id="";
+    errorIndex = undefined;
+  }
 
   for (const widget of document.getElementsByTagName("iframe")) {
     widget.style.setProperty("visibility", "hidden", "important");

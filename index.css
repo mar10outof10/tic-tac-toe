@@ -93,10 +93,6 @@ img {
 }
 
 .board .blue-box:hover {
-  background-color: #CE2029;
-}
-
-.game-over .blue-box:hover {
   background-color: #58CCED;
 }
 
@@ -105,11 +101,11 @@ img {
 }
 
 .board .yellow-box:hover {
-  background-color: #CE2029;
+  background-color: #F3E260;
 }
 
-.game-over .yellow-box:hover {
-  background-color: #F3E260;
+#error-box {
+  background-color: #CE2029 !important;
 }
 
 .top-row>.box {
@@ -132,7 +128,7 @@ img {
   body {
     font-size: 0.5rem;
   }
-  
+
   .board {
     height: 20em;
   }
