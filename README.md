@@ -2,32 +2,18 @@
 
 ## Stack: JS/CSS/HTML
 
-## Requirements
-Game Rules:
+Blue goes first.
 
-3x3 Grid
+Click the board on an empty space to play that space.
 
-Two Local Players: Blue + Yellow
+First colour to get three in a row horizontally, vertically, or diagonally win.
 
-Players alternate turns starting with blue
+If the board fills up without a winning combo, the game ends in a draw.
 
-On their turn, players click/tap any of the 9 cells on the grid
+Have fun!
 
-Players clicking cells already played get an error message
-
-If a player matches 3 consecutive cells of their own colour: vertically, horizontally or diagonally, this player is announced to be the winner and the game is over 
-
-Game Loop:
-
-If Blue clicks on a cell that has not yet been played, this cell will turn blue, then it’s Yellow's turn 
-
-If Yellow clicks on cell that has not yet been played, this cell will turn yellow, then it’s Blue's turn 
-
-Game ends after win condition reached or 9 turns played
-
-Option to share win on facebook or twitter
-
-Option to play again
+![image](https://github.com/mar10outof10/tic-tac-toe/tree/main/assets/screenshot_1.png)
+![image](https://github.com/mar10outof10/tic-tac-toe/tree/main/assets/screenshot_2.png)
 
 ## Stretch
 
