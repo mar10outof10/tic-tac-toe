@@ -12,8 +12,8 @@ If the board fills up without a winning combo, the game ends in a draw.
 
 Have fun!
 
-![image](https://github.com/mar10outof10/tic-tac-toe/tree/main/assets/screenshot_1.png)
-![image](https://github.com/mar10outof10/tic-tac-toe/tree/main/assets/screenshot_2.png)
+![image](https://raw.githubusercontent.com/mar10outof10/tic-tac-toe/main/assets/screenshot_1.png)
+![image](https://raw.githubusercontent.com/mar10outof10/tic-tac-toe/main/assets/screenshot_2.png)
 
 ## Stretch
 
