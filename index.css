@@ -105,3 +105,13 @@ img {
 .box:nth-child(3) {
   border-right: none;
 }
+
+@media only screen and (max-width: 768px) {
+  .board {
+    height: 20em;
+  }
+
+  .row {
+    width: 20em;
+  }
+}
