@@ -6,7 +6,7 @@ const gridMap = ["top-left", "top", "top-right", "left", "middle", "right", "bot
 
 let counter;
 let turn;
-let winner;
+let winData;
 
 let blueMoves;
 let yellowMoves;
@@ -40,21 +40,22 @@ const boxClick = (index) => {
   }
 
   if (counter >= 5) { // minimum 5 pieces before victory possible
-    winner = victoryCheck(index);
+    winData = victoryCheck(index);
   }
 
-  if (winner) {
+  if (winData) {
+    let winner = turn === "blue" ? "Yellow" : "Blue";
     game = false;
-    for (let i = 2; i <= 4; i++) {
-      boxes[winner[i]].classList.add('win-box');
-      boxes[winner[i]].innerHTML+=`<img class="winner" src="assets/${winner[1]}.png">`;
+    for (let i = 1; i <= 3; i++) {
+      boxes[winData[i]].classList.add('win-box');
+      boxes[winData[i]].innerHTML+=`<img class="winner" src="assets/${winData[0]}.png">`;
     }
-    board.classList.remove(winner[0]);
     board.classList.add("game-over"); // disables hover effects
-    return gameText.innerHTML = `${winner[0]} you're the winner!`;
+    return gameText.innerHTML = `${winner} you're the winner!`;
   }
-
+  
   if (counter >= 9) {
+    board.classList.add("game-over"); // disables hover effects
     gameText.innerHTML = "Nobody wins! Darn";
   }
 
@@ -64,23 +65,23 @@ const boxClick = (index) => {
 const victoryCheck = (index) => { // receives index, checks game grid. Returns array in format ["winner", #, #, #] where each # is a coordinate of the winning piece
   const row = Math.floor(index / 3) * 3; // gives first index of row 
   if (boxes[row].classList.length > 1 && boxes[row].classList[1] === boxes[row + 1].classList[1] && boxes[row + 1].classList[1] === boxes[row + 2].classList[1]) {
-    return [boxes[row].classList[1].split('-')[0], "horiz_line", row, row + 1, row + 2]
+    return ["horiz_line", row, row + 1, row + 2]
   }
 
   const col = index % 3;
   if (boxes[col].classList.length > 1 && boxes[col].classList[1] === boxes[col + 3].classList[1] && boxes[col + 3].classList[1] === boxes[col + 6].classList[1]) {
-    return [boxes[col].classList[1].split('-')[0], "vert_line", col, col + 3, col + 6]
+    return ["vert_line", col, col + 3, col + 6]
   }
 
   if (index === 0 || index === 4 || index === 8) { // diagonal check #1
     if (boxes[0].classList.length > 1 && boxes[0].classList[1] === boxes[4].classList[1] && boxes[4].classList[1] === boxes[8].classList[1]) {
-      return [boxes[4].classList[1].split('-')[0], "diag_right", 0, 4, 8]
+      return ["diag_right", 0, 4, 8]
     }
   }
 
   if (index === 2 || index === 4 || index === 6) { // diagonal check #2
     if (boxes[2].classList.length > 1 && boxes[2].classList[1] === boxes[4].classList[1] && boxes[4].classList[1] === boxes[6].classList[1]) {
-      return [boxes[4].classList[1].split('-')[0], "diag_left", 2, 4, 6]
+      return ["diag_left", 2, 4, 6]
     }
   }
 };
@@ -89,10 +90,10 @@ const newGame = () => {
   game = true;
   counter = 0;
   turn = "blue";
+  winData = undefined;
   board.classList.remove("game-over")
   board.classList.remove("yellow");
   board.classList.add("blue");
-  winner = false;
   yellowMoves = new Set();
   blueMoves = new Set();
 
