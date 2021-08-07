@@ -6,16 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Awesome Tic-Tac-Toe</title>
   <link rel="stylesheet" href="index.css">
+  <meta property="og:url"                content="https://mar10outof10.github.io/tic-tac-toe/" />
+  <meta property="og:type"               content="website" />
+  <meta property="og:title"              content="Awesome Tic-Tac-Toe" />
+  <meta property="og:description"        content="I just won a game of Awesome Tic-Tac-Toe! Care to challenge me?" />
+  <meta property="og:image"              content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
   <script type="text/javascript" src="main.js" defer></script>
 </head>
 <body>
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0" nonce="Yb4VLR7X"></script>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <h1> Tic-Tac-Toe</h1>
   <header id="header-container">
-    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <div class="fb-share-button hidden" data-href="https://mar10outof10.github.io/tic-tac-toe/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
     <h3 id="game-text">Click the button to start the game!</h3>
-    <div class="fb-share-button" data-href="https://mar10outof10.github.io/tic-tac-toe/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button hidden" data-text="I just won a game of Awesome Tic-Tac-Toe! Care to challenge me?" data-url="https://mar10outof10.github.io/tic-tac-toe/" data-hashtags="tic-tac-toe" data-show-count="false">Tweet</a>
   </header>
   <button onclick="newGame()">
     New Game!
