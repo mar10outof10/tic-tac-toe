@@ -1,7 +1,13 @@
 const gameText = document.getElementById("game-text");
-const header = document.getElementById("header-container");
 const board = document.getElementsByClassName("board")[0];
 const boxes = document.getElementsByClassName("box");
+
+// globals for game data
+let counter;
+let turn;
+let winData;
+let errorIndex;
+let game;
 
 const gridMap = ["top-left", "top", "top-right", "left", "middle", "right", "bottom-left", "bottom", "bottom-right"];
 const winMap = {
@@ -10,13 +16,6 @@ const winMap = {
   "left-diagonal": "diag_left",
   "right-diagonal": "diag_right"
 };
-
-let counter;
-let turn;
-let winData;
-let errorIndex;
-
-let game;
 
 const boxClick = (index) => {
   if (!game) {
@@ -67,7 +66,7 @@ const boxClick = (index) => {
     for (const widget of document.getElementsByTagName("iframe")) {
       widget.style.setProperty("visibility", "visible", "important");
     }
-    board.classList.add("game-over"); // disables hover effects
+    board.classList.add("game-over"); // disables hover effects, ebds gane
     gameText.innerHTML = `${winner} is the winner with a ${winData[0]} victory!`;
     gameText.className = winner === "Blue" ? "blue-win" : "yellow-win";
     return;
@@ -114,19 +113,17 @@ const newGame = () => {
   board.classList.remove("yellow");
   board.classList.add("blue");
   gameText.className = "";
-  yellowMoves = new Set();
-  blueMoves = new Set();
 
   if (errorIndex) {
     boxes[errorIndex].id="";
     errorIndex = undefined;
   }
 
-  for (const widget of document.getElementsByTagName("iframe")) {
+  for (const widget of document.getElementsByTagName("iframe")) { // rehides social media buttons
     widget.style.setProperty("visibility", "hidden", "important");
   }
 
-  for (const box of boxes) {
+  for (const box of boxes) { // clears boxes
     box.classList.remove("blue-box");
     box.classList.remove("yellow-box");
     box.classList.remove("win-box");
