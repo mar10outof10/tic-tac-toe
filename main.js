@@ -1,4 +1,5 @@
 const gameText = document.getElementById("game-text");
+const header = document.getElementById("header-container");
 const board = document.getElementsByClassName("board")[0];
 const boxes = document.getElementsByClassName("box");
 const gridMap = ["top-left", "top", "top-right", "left", "middle", "right", "bottom-left", "bottom", "bottom-right"];
