@@ -24,7 +24,7 @@ const boxClick = (index) => {
   }
 
   if (errorIndex) {
-    boxes[errorIndex].id="";
+    boxes[errorIndex].id = "";
     errorIndex = undefined;
   }
   
@@ -32,7 +32,7 @@ const boxClick = (index) => {
   
   if (box.classList.length > 1) {
     errorIndex = index;
-    boxes[errorIndex].id="error-box";
+    boxes[errorIndex].id = "error-box";
     gameText.innerHTML = "<h2>Hey! That spot is already taken!</h2>";
     return;
   }
@@ -42,12 +42,12 @@ const boxClick = (index) => {
 
   if (turn === "blue") {
     box.classList.add("blue-box");
-    box.innerHTML="<img src=\"assets/o_transparent.png\">"
+    box.innerHTML = "<img src=\"assets/o_transparent.png\">";
     turn = "yellow";
     gameText.innerHTML = `Blue played in the ${gridMap[index]} spot! Yellow's turn!`;
   } else {
     box.classList.add("yellow-box");
-    box.innerHTML="<img src=\"assets/x_transparent.png\">"
+    box.innerHTML = "<img src=\"assets/x_transparent.png\">";
     turn = "blue";
     gameText.innerHTML = `Yellow played in the ${gridMap[index]} spot! Blue's turn!`;
   }
@@ -61,7 +61,7 @@ const boxClick = (index) => {
     game = false;
     for (let i = 1; i <= 3; i++) {
       boxes[winData[i]].classList.add('win-box');
-      boxes[winData[i]].innerHTML+=`<img class="winner" src="assets/${winMap[winData[0]]}.png">`;
+      boxes[winData[i]].innerHTML += `<img class="winner" src="assets/${winMap[winData[0]]}.png">`;
     }
     for (const widget of document.getElementsByTagName("iframe")) {
       widget.style.setProperty("visibility", "visible", "important");
@@ -83,23 +83,23 @@ const boxClick = (index) => {
 const victoryCheck = (index) => { // receives index, checks game grid. Returns array in format ["win-type", #, #, #] where each # is the index of a winning box
   const row = Math.floor(index / 3) * 3; // gives first index of row (0, 3 or 6)
   if (boxes[row].classList.length > 1 && boxes[row].classList[1] === boxes[row + 1].classList[1] && boxes[row + 1].classList[1] === boxes[row + 2].classList[1]) {
-    return ["horizontal", row, row + 1, row + 2]
+    return ["horizontal", row, row + 1, row + 2];
   }
 
   const col = index % 3; // gives column (0, 1, or 2)
   if (boxes[col].classList.length > 1 && boxes[col].classList[1] === boxes[col + 3].classList[1] && boxes[col + 3].classList[1] === boxes[col + 6].classList[1]) {
-    return ["vertical", col, col + 3, col + 6]
+    return ["vertical", col, col + 3, col + 6];
   }
 
   if (index === 0 || index === 4 || index === 8) { // diagonal check #1
     if (boxes[0].classList.length > 1 && boxes[0].classList[1] === boxes[4].classList[1] && boxes[4].classList[1] === boxes[8].classList[1]) {
-      return ["left-diagonal", 0, 4, 8]
+      return ["left-diagonal", 0, 4, 8];
     }
   }
 
   if (index === 2 || index === 4 || index === 6) { // diagonal check #2
     if (boxes[2].classList.length > 1 && boxes[2].classList[1] === boxes[4].classList[1] && boxes[4].classList[1] === boxes[6].classList[1]) {
-      return ["right-diagonal", 2, 4, 6]
+      return ["right-diagonal", 2, 4, 6];
     }
   }
 };
@@ -109,13 +109,13 @@ const newGame = () => {
   counter = 0;
   turn = "blue";
   winData = undefined;
-  board.classList.remove("game-over")
+  board.classList.remove("game-over");
   board.classList.remove("yellow");
   board.classList.add("blue");
   gameText.className = "";
 
   if (errorIndex) {
-    boxes[errorIndex].id="";
+    boxes[errorIndex].id = "";
     errorIndex = undefined;
   }
 
@@ -130,5 +130,5 @@ const newGame = () => {
     box.innerHTML = "";
   }
 
-  gameText.innerHTML = "Game on! Blue's turn"
-}
+  gameText.innerHTML = "Game on! Blue's turn";
+};
